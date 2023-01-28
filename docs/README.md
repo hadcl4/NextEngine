@@ -84,9 +84,12 @@ All games need to track input in some way, and in this case, it's using keyboard
 
 It's quite easy to figure out how to check keyboard input. `if Key(<key>) == True:` will check if a key is currently pressed. If it is pressed, it will return `True`. And if it's not pressed, it'll return `False`. It takes one argument: the name of the key you want to check. For a list of key names, refer to pygame's list [here](https://www.pygame.org/docs/ref/key.html). Just scroll down a little ways until you find the list. In `nextlib`, always use the key names listed under "Description". Under the `if` statement, you can put the code you want executed when the key is pressed.
 #### Backdrop
-In `nextlib`, you'll always need a backdrop to be displayed. Try to use a sprite that fits well with the size of the screen. Keep in mind, if you need to change `x` or `y`, you can just display a large sprite on top of the backdrop, so you don't see it at all.
+In `nextlib`, you'll always* need a backdrop to be displayed. Try to use a sprite that fits well with the size of the screen. Keep in mind, if you need to change `x` or `y`, you can just display a large sprite on top of the backdrop, so you don't see it at all.
 
 You can draw a backdrop by running `DrawBackdrop()`. It only needs one argument. This argument is the name of a sprite stored in your project's "sprites" folder (it MUST be `.png`!).
+
+###### *See "Advanced Drawing Functions" for information on an alternative method that doesn't require a sprite.
+
 #### Sprite(s)
 After drawing a backdrop, you can display sprites on top of it. Sprites are more versatile, since you can change their `x` and `y`.
 
@@ -121,4 +124,5 @@ If you've read through "The Basics", you're now ready to move on to more complex
 
 - [Playing Audio](AUDIO.md)
 - [Controller Input](CONTROLLERS.md)
+- [Advanced Drawing Functions](ADVANCED_DRAWING.md)
 - [Getting Info about the Surface/Screen](NEXT_INFO.md)
