@@ -84,6 +84,22 @@ def load_image(path):
         raise ValueError("Failed to load image! Make sure you've correctly entered the path, and that the file exists.")
     return surface.convert()
 
+def RenderSprite(sprite_name,x,y):
+    global screen
+    global surface
+    global last_used_sprite
+    sprite = "sprites/"+sprite_name+".png"
+    if last_used_sprite != sprite_name:
+        sprite_init = 0
+    if sprite != 0 and surface != 0:
+        if sprite_init == 0:
+            sprite_data = load_image(sprite)
+            sprite_init = 1
+        if sprite_init == 1:
+            surface.blit(sprite_data,(x,y))
+            pg.display.flip()
+            last_used_sprite = sprite_name
+
 def DrawSprite(sprite_name,x,y):
     global sprites
     global si
@@ -151,6 +167,22 @@ def SetWindowTitle(title):
 def next_quit():
     pg.quit()
     system.exit()
+
+def SetTransparency(value):
+    global surface
+    if value <= 255 and value >= 0:
+        if surface != 0:
+            pg.Surface.set_alpha(surface,value)
+    else:
+        raise ValueError("The inputted number must be between 0 and 255!")
+
+def RenderBlank():
+    global screen
+    global screen_height
+    global screen_width
+    global surface
+    surface = pg.Surface(surface_size)
+    pg.display.flip()
 
 # Draw a Backdrop
 def DrawBackdrop(bg_name):
