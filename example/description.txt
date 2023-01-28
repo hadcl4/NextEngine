@@ -1,1 +1,12 @@
-Description
+-------
+EXAMPLE
+-------
+
+In this demo game, move around a sprite and interact with another sprite. For a walkthrough of the code, view "docs/README.md" -> "The Basics".
+
+--------
+CONTROLS
+--------
+
+Arrow Keys: Movement
+Escape: Exit
