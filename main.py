@@ -98,6 +98,8 @@ def edit(loc):
         elif editor.full_screen == True:
             editor.full_screen = False
         editor.update()
+        time.sleep(1/4)
+        editor.update()
         resize()
     def save_changes():
         try:
