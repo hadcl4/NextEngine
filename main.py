@@ -4,6 +4,7 @@ import math
 import time
 import subprocess
 import nextlib
+import webbrowser
 
 nextlib.pg.mixer.init()
 
@@ -155,6 +156,16 @@ def edit(loc):
         command = f'cd '+folder+'; python3 '+folder+'/main.py'
         subprocess.Popen(command,stdout=True,stderr=True,shell=True)
         print("Running project...")
+    def doc_page_basics():
+        webbrowser.open(url="https://github.com/hadcl4/NextEngine/blob/main/docs/README.md",new=2,autoraise=True)
+    def doc_page_audio():
+        webbrowser.open(url="https://github.com/hadcl4/NextEngine/blob/main/docs/AUDIO.md",new=2,autoraise=True)
+    def doc_page_control():
+        webbrowser.open(url="https://github.com/hadcl4/NextEngine/blob/main/docs/CONTROLLERS.md",new=2,autoraise=True)
+    def doc_page_draw():
+        webbrowser.open(url="https://github.com/hadcl4/NextEngine/blob/main/docs/ADVANCED_DRAWING.md",new=2,autoraise=True)
+    def doc_page_info():
+        webbrowser.open(url="https://github.com/hadcl4/NextEngine/blob/main/docs/NEXT_INFO.md",new=2,autoraise=True)
     app.hide()
     editor = Window(app,bg="darkblue",title="NextEngine - Project",height=650,width=800)
     editor.icon = home+"/NextEngine/assets/logo_small.png"
@@ -198,9 +209,10 @@ def edit(loc):
     run_button.bg = "white"
     run_button.visible = False
     menubar = MenuBar(editor,
-                  toplevel=["Menu"],
+                  toplevel=["Menu","Documentation"],
                   options=[
-                      [ ["Toggle Fullscreen",fullscreen_toggle], ["Return to Home", return_to_menu] ]
+                      [ ["Toggle Fullscreen",fullscreen_toggle], ["Return to Home", return_to_menu] ],
+                      [ ["The Basics",doc_page_basics], ["Playing Audio",doc_page_audio], ["Controller Input",doc_page_control], ["Advanced Drawing Functions",doc_page_draw], ["Surface/Screen Info",doc_page_info] ]
                   ])
 
 def load():
