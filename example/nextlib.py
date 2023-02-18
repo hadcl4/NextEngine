@@ -9,7 +9,10 @@ import pygame._sdl2.controller
 import time
 import sys as system
 import math
+import os
 
+global working_path
+working_path = os.path.dirname(os.path.abspath(__file__))+"/"
 global sprites
 sprites = list()
 global bg_init
@@ -88,7 +91,8 @@ def RenderSprite(sprite_name,x,y):
     global screen
     global surface
     global last_used_sprite
-    sprite = "sprites/"+sprite_name+".png"
+    global working_path
+    sprite = working_path+"sprites/"+sprite_name+".png"
     if last_used_sprite != sprite_name:
         sprite_init = 0
     if sprite != 0 and surface != 0:
@@ -111,13 +115,14 @@ def DrawSprite(sprite_name,x,y):
     global sprite_init
     global sprite_data
     global last_used_sprite
+    global working_path
     if last_used_sprite != sprite_name:
         sprite_init = 0
     center_x = screen_width/1.25
     center_y = screen_height/4
     sprite_x = center_x+x
     sprite_y = center_y+y
-    sprite = "sprites/"+sprite_name+".png"
+    sprite = working_path+"sprites/"+sprite_name+".png"
     if sprite != 0 and surface != 0:
         if sprite_init == 0:
             sprite_data = load_image(sprite)
@@ -156,7 +161,8 @@ def FullScreenToggle():
     pg.display.toggle_fullscreen()
 
 def SetWindowIcon(img):
-    icon = "sprites/"+img+".png"
+    global working_path
+    icon = working_path+"sprites/"+img+".png"
     if icon != 0:
         data = load_image(icon)
         pg.display.set_icon(data)
@@ -196,9 +202,10 @@ def DrawBackdrop(bg_name):
     global bg_init
     global bg_data
     global bg_len
+    global working_path
     center_x = (screen_width/1.25)-580
     center_y = (screen_height/4)-320
-    bg = "sprites/"+bg_name+".png"
+    bg = working_path+"sprites/"+bg_name+".png"
     if bg != 0:
         bg_data = load_image(bg)
         surface = pg.Surface(surface_size)
@@ -206,7 +213,8 @@ def DrawBackdrop(bg_name):
         pg.display.flip()
 
 def PlayMusic(music_file):
-    pg.mixer.music.load("music/"+music_file+".ogg")
+    global working_path
+    pg.mixer.music.load(working_path+"music/"+music_file+".ogg")
     pg.mixer.music.play(-1,0.0,0)
 
 def StopMusic():
@@ -214,7 +222,8 @@ def StopMusic():
     pg.mixer.music.unload()
 
 def PlaySound(sound_file):
-    pg.mixer.Sound("music/"+sound_file+".ogg").play()
+    global working_path
+    pg.mixer.Sound(working_path+"music/"+sound_file+".ogg").play()
 
 def PadCount():
     return pg._sdl2.controller.get_count()
