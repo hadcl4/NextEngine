@@ -20,6 +20,8 @@ global code_width
 code_width = 75
 global code_height
 code_height = 32
+global working_path
+working_path = os.path.dirname(os.path.abspath(__file__))+"/"
 
 def edit(loc):
     global app
@@ -168,7 +170,7 @@ def edit(loc):
         webbrowser.open(url="https://github.com/hadcl4/NextEngine/blob/main/docs/NEXT_INFO.md",new=2,autoraise=True)
     app.hide()
     editor = Window(app,bg="darkblue",title="NextEngine - Project",height=650,width=800)
-    editor.icon = home+"/NextEngine/assets/logo_small.png"
+    editor.icon = working_path+"assets/logo_small.png"
     editor.when_closed = return_to_menu
     menu = ButtonGroup(editor,options=["Code","Information","Assets","Run Game"],horizontal=True,command=tab_switch)
     menu.bg = "white"
@@ -237,9 +239,9 @@ def create():
     if not proj_name == None:
         try:
             if os.name == "posix":
-                command = f'cd '+fol+'; mkdir '+proj_name+'; cp '+home+'/NextEngine/nextlib.py '+proj_name+'/nextlib.py; mkdir '+proj_name+'/sprites; mkdir '+proj_name+'/music'
+                command = f'cd '+fol+'; mkdir '+proj_name+'; cp '+working_path+'nextlib.py '+proj_name+'/nextlib.py; mkdir '+proj_name+'/sprites; mkdir '+proj_name+'/music'
             elif os.name == "nt":
-                command = f'cd '+fol+'; mkdir '+proj_name+'; Copy-Item '+home+'/NextEngine/nextlib.py '+proj_name+'/nextlib.py; mkdir '+proj_name+'/sprites; mkdir '+proj_name+'/music'
+                command = f'cd '+fol+'; mkdir '+proj_name+'; Copy-Item '+working_path+'nextlib.py '+proj_name+'/nextlib.py; mkdir '+proj_name+'/sprites; mkdir '+proj_name+'/music'
             else:
                 app.error("NextEngine - Project Create Error","Unrecognized operating system!")
             subprocess.Popen(command,stdout=True,stderr=True,shell=True)
@@ -257,9 +259,9 @@ def create():
 
 global app
 app = App(title="NextEngine - Home",bg="darkblue",height=345,width=325)
-app.icon = home+"/NextEngine/assets/logo_small.png"
-Picture(app,image="assets/logo.png")
-PushButton(app,image="assets/load.png",command=load)
-PushButton(app,image="assets/new.png",command=create)
-PushButton(app,image="assets/quit.png",command=exit)
+app.icon = working_path+"assets/logo_small.png"
+Picture(app,image=working_path+"assets/logo.png")
+PushButton(app,image=working_path+"assets/load.png",command=load)
+PushButton(app,image=working_path+"assets/new.png",command=create)
+PushButton(app,image=working_path+"assets/quit.png",command=exit)
 app.display()
