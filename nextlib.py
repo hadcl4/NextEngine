@@ -118,8 +118,8 @@ def DrawSprite(sprite_name,x,y):
     global working_path
     if last_used_sprite != sprite_name:
         sprite_init = 0
-    center_x = screen_width/1.25
-    center_y = screen_height/4
+    center_x = (screen_width/2)-64
+    center_y = (screen_height/2)-64
     sprite_x = center_x+x
     sprite_y = center_y+y
     sprite = working_path+"sprites/"+sprite_name+".png"
@@ -146,9 +146,9 @@ def next_init(data_in,data_out):
     global surface_size
     global screen
     global screen_height
-    screen_height = data_in
+    screen_height = data_out
     global screen_width
-    screen_width = data_out
+    screen_width = data_in
     SCREENRECT = pg.Rect(0,0,data_in,data_out)
     surface_size = SCREENRECT.size
     pg.init()
@@ -203,8 +203,8 @@ def DrawBackdrop(bg_name):
     global bg_data
     global bg_len
     global working_path
-    center_x = (screen_width/1.25)-580
-    center_y = (screen_height/4)-320
+    center_x = (screen_width/2)-(screen_width/2)
+    center_y = (screen_height/2)-(screen_height/2)
     bg = working_path+"sprites/"+bg_name+".png"
     if bg != 0:
         bg_data = load_image(bg)
@@ -238,3 +238,4 @@ def Pad(int):
 # Pause execution for <sec> seconds
 def Wait(sec):
     time.sleep(sec)
+
