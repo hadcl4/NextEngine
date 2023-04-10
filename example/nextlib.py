@@ -50,7 +50,10 @@ def get_next_surface():
 
 def get_next_screen():
     global screen
-    return screen
+    global screen_width
+    global screen_height
+    output = [screen,screen_width,screen_height]
+    return output
 
 def DrawText(text,color,size,pos):
     global surface
