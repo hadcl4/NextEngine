@@ -121,16 +121,19 @@ def DrawSprite(sprite_name,x,y):
     global working_path
     if last_used_sprite != sprite_name:
         sprite_init = 0
-    center_x = (screen_width/2)-64
-    center_y = (screen_height/2)-64
-    sprite_x = center_x+x
-    sprite_y = center_y+y
+    sprite_x = 0
+    sprite_y = 0
     sprite = working_path+"sprites/"+sprite_name+".png"
+    sprite_init = 0
     if sprite != 0 and surface != 0:
         if sprite_init == 0:
             sprite_data = load_image(sprite)
+            center_x = (screen_width/2)-(sprite_data.get_width())/2
+            center_y = (screen_height/2)-(sprite_data.get_height())/2
+            sprite_x = center_x+x
+            sprite_y = center_y+y
             sprite_init = 1
-        if sprite_init == 1:
+        if sprite_init == 1 and sprite_x != 0 and sprite_y != 0:
             surface.blit(sprite_data,(sprite_x,sprite_y))
             pg.display.flip()
             last_used_sprite = sprite_name
