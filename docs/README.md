@@ -126,4 +126,4 @@ If you've read through "The Basics", you're now ready to move on to more complex
 - [Controller Input](CONTROLLERS.md)
 - [Advanced Drawing Functions](ADVANCED_DRAWING.md)
 - [Getting Info about the Surface/Screen](NEXT_INFO.md)
-> [Mouse Input](MOUSE.md)
+- [Mouse Input](MOUSE.md)
