@@ -245,3 +245,14 @@ def Pad(int):
 def Wait(sec):
     time.sleep(sec)
 
+def MouseClick():
+    return pg.mouse.get_pressed()[0]
+
+def MousePosition():
+    global screen_height
+    global screen_width
+    position = pg.mouse.get_pos()
+    center_x = (screen_width)/2
+    center_y = (screen_height)/2
+    outpos = [0-(center_x-position[0]),0-(center_y-position[1])]
+    return outpos
