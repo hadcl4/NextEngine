@@ -1,6 +1,8 @@
 # Documentation
 
-If you want to see how NextEngine works before trying it out, or if you need to know how to do a specific thing, you can read these docs. In the engine itself, you can also access this documentation at any time from the "Documentation" button in the menu.
+If you want to see how NextEngine works before trying it out, or if you need to know how to do a specific thing, you can read these docs. In the engine itself, you can also access this documentation at any time from the "Documentation" button in the menu (an internet connection will be required).
+
+Also please know that any time that a word is surrounded by `<>`, it means that it is just an example. For example, `<key>` is simply representing any key, and is not actually was should be inserted when coding. Keep this in mind as you read the documentation.
 
 ## The Basics
 Every game you write in NextEngine will begin this way:
@@ -13,7 +15,7 @@ import nextlib
 ```
 However, during this tutorial, we'll use the first method (the first method is also the default).
 ### Getting Everything Ready
-Before we get into putting stuff on the screen, you'll need to get everything set up first. You can write down the "init" part of your script after you've imported `nextlib`.
+Before we get into putting stuff on the screen, you'll need to get everything set up first. You can write down the "initialization" part of your script after you've imported `nextlib`.
 ```
 global x
 x = 0
@@ -23,17 +25,12 @@ global position_x
 position_x = 0
 global position_y
 position_y = 0
-
-init = 0
-
-if init == 0:
-    next_init(1280,720)
-    SetWindowIcon("player_idle")
-    SetWindowTitle("NextEngine Example")
-    dir = "idle"
-    init = 1
+next_init(1280,720)
+SetWindowIcon("player_idle")
+SetWindowTitle("NextEngine Example")
+dir = "idle"
 ```
-This is the "init" section of the included example. First, global variables will be set, then, under `if init == 0:`, there's some more important stuff, and this will be needed for pretty much any NextEngine game. 
+This is the "initialization" section of the included example. First, global variables will be set, followed by some important stuff that you'll need for just about any NextEngine game.
 
 First is `next_init()`. This will handle initializing everything, and you'll be able to set the game's resolution from here. The first argument is the window's width, and the second is the window's height. The recommended resolution in NextEngine is `1280x720`, as the coordinate plane is suited well for this resolution.
 
@@ -41,7 +38,7 @@ After this is `SetWindowIcon()`. This will change the icon that shows up on the 
 
 Finally is `SetWindowTitle()`. Like `SetWindowIcon()`, this is optional, but recommended. It also only needs one argument. This argument will be the text you want your window's title to be.
 
-The two things after this just have to do with the example, so I won't go over them.
+The last thing after this just has to do with the example, so I won't go over it here.
 ### The Game Loop
 ```
 while True:

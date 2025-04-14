@@ -257,7 +257,7 @@ def create():
     else:
         app.error("NextEngine - Project Create Error","A name is required!")
     if mode == 1:
-        edit(folder)
+        creation_success = info("NextEngine - Project Create Success","The project was successfully created! Open the project with LOAD on the menu to get started.")
 
 global app
 app = App(title="NextEngine - Home",bg="darkblue",height=345,width=325)

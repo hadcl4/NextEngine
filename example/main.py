@@ -8,15 +8,11 @@ global position_x
 position_x = 0
 global position_y
 position_y = 0
+next_init(1280,720)
+SetWindowIcon("player_idle")
+SetWindowTitle("NextEngine Example")
+dir = "idle"
 
-init = 0
-
-if init == 0:
-    next_init(1280,720)
-    SetWindowIcon("player_idle")
-    SetWindowTitle("NextEngine Example")
-    dir = "idle"
-    init = 1
 while True:
     if Key("right") == True:
         position_x += 10
@@ -50,3 +46,4 @@ while True:
         DrawSprite("collide",position_x+32,position_y-64)
     Draw()
     Wait(1/180)
+
