@@ -24,3 +24,4 @@ NextEngine wouldn't be possible without the following:
 
 - Pygame. Used in `nextlib`.
 - LibreSprite. Images in NextEngine were created with this.
+- Guizero. Used to create the GUI for NextEngine.
