@@ -3,6 +3,10 @@
 
 > Easy-to-use Game Engine written in Python, using Python
 
+Watch the trailer for the engine on YouTube:
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/rMc10vzFry0/0.jpg)](https://youtube.com/watch?v=rMc10vzFry0)
+
 ## What is "NextEngine"?
 NextEngine is an easy-to-use, open-source, and simple yet powerful game engine written in Python, and uses Python as its programming language. Using the included `nextlib` library, which runs on top of Pygame, you can use the engine for things such as prototyping, experimenting, or just creating games. You can then distribute your game either as a Python package or use [third party tools](https://docs.python.org/3/faq/programming.html#how-can-i-create-a-stand-alone-binary-from-a-python-script) to distribute it as a standalone executable. The choice is yours!
 
