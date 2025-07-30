@@ -2,7 +2,7 @@
 
 If you want to see how NextEngine works before trying it out, or if you need to know how to do a specific thing, you can read these docs. In the engine itself, you can also access this documentation at any time from the "Documentation" button in the menu (an internet connection will be required).
 
-Also please know that any time that a word is surrounded by `<>`, it means that it is just an example. For example, `<key>` is simply representing any key, and is not actually was should be inserted when coding. Keep this in mind as you read the documentation.
+Also please know that any time that a word is surrounded by `<>`, it means that it is just an example. For example, `<key>` is simply representing any key, and is not actually what should be inserted when coding. Keep this in mind as you read the documentation.
 
 ## The Basics
 Every game you write in NextEngine will begin this way:
